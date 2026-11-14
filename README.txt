@@ -30,8 +30,7 @@ IMPORTANT SCIENTIFIC LIMITATIONS
 - The trend slope is OLS on annual averages. The Mann–Kendall calculation is a
   basic uncorrected approximation; serial correlation and ties are not adjusted.
 - Statistical significance does not establish causation.
-- The app has not been run in the user's laptop environment. Test it before claiming
-  a successful live demonstration.
+- The Gombe temperature analysis for 2001-2025 has been successfully in a browser. 
 - NASA POWER monthly meteorological data begin in 1981. This prototype caps end year
   at 2025 to avoid requesting an incomplete current year.
 
@@ -42,8 +41,8 @@ Official challenge:
 https://www.spaceappschallenge.org/2026/challenges/earth-system-trend-detective/
 
 TEAM FIELDS TO COMPLETE
-Team name: [ENTER OFFICIAL TEAM NAME]
-Team members: [ENTER REGISTERED MEMBERS]
+Team name: SAHEL EARTHLAB
+Team members: ABDULSHAKUR UMAR AHMAD,DAUDA ALIYU ADAMU,AMINU SAYOJI MUHAMMED 
 Local event: Gombe, Nigeria
-Project lead: [ENTER TEAM LEADER NAME]
-GitHub/demo URL: [ADD AFTER PUBLISHING]
+Project lead: ABDULSHAKUR UMAR AHMAD
+GitHub/demo URL: https://kingabdulfx.gihub.io/EarhScope360/

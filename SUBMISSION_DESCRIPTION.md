@@ -1,77 +1,108 @@
-
 # EarthScope 360 — Discovering Earth's Changing Signals
 
-**Selected NASA Space Apps Challenge:** Be An Earth System Trend Detective!
+**NASA Space Apps Challenge 2026**
 
-## 1. Problem
+**Challenge:** Be An Earth System Trend Detective!
 
-Earth science data contain valuable information about environmental changes, but many students and members of the public find it difficult to retrieve, analyze, visualize and interpret long-term environmental trends.
+**Team Name:** SAHEL EARTHLAB
 
-## 2. Our Solution
+**Project Lead:** Abdushukur Umar Ahmad
 
-EarthScope 360 is a browser-based environmental data exploration application that helps users investigate changes in temperature, precipitation and relative humidity across selected Nigerian locations.
+**Local Event:** Gombe, Nigeria
 
-Users can select a location, environmental variable and historical period. The application retrieves monthly data directly from NASA POWER, calculates day-weighted annual averages, visualizes the results and estimates the direction and rate of change.
+## 1. Project Overview
 
-It also applies linear regression and a tie-corrected Mann–Kendall test to examine whether the observed data show evidence of a monotonic trend.
+EarthScope 360 is a web-based environmental data exploration and trend analysis platform developed to help users investigate long-term changes in Earth's climate-related variables across selected locations in Nigeria.
 
-## 3. Connection to the Challenge
+The project uses historical NASA POWER data to make environmental information easier to access, visualize, and interpret. Users can select a Nigerian location, choose an environmental variable, and examine historical patterns through interactive charts and statistical analysis.
 
-EarthScope 360 supports the objectives of the Earth System Trend Detective challenge by making it easier to:
+## 2. Problem Statement
 
-- Select Earth-system variables.
-- Retrieve historical environmental data.
-- Explore changes over time.
-- Visualize annual trends.
-- Estimate the rate of environmental change.
-- Examine the statistical significance of observed trends.
+Understanding long-term environmental changes requires access to reliable historical data and tools for interpreting trends.
 
-## 4. NASA Data Sources
+However, environmental datasets can be difficult for students, researchers, and the general public to access and analyze. Without simple visualization and statistical tools, identifying possible changes over time can be challenging.
 
-The application uses the NASA POWER Monthly Point API.
+EarthScope 360 addresses this problem by providing a straightforward platform for exploring historical environmental data.
 
-Supported variables include:
+## 3. Our Solution
 
-- T2M — Air temperature at 2 metres.
-- PRECTOTCORR — Corrected precipitation.
-- RH2M — Relative humidity at 2 metres.
+EarthScope 360 allows users to:
 
-NASA POWER documentation:
-https://power.larc.nasa.gov/docs/services/api/temporal/monthly/
+- Select from supported Nigerian locations, including Gombe, Bauchi, Kano, Lagos, and Abuja.
+- Choose an environmental variable for analysis.
+- Retrieve historical monthly data from NASA POWER.
+- View annual averages through interactive charts.
+- Estimate long-term linear trends.
+- Apply the Mann–Kendall statistical test to investigate monotonic trends.
+- View explanations and limitations alongside the results.
 
-The meteorological data are gridded model/reanalysis-derived estimates and should not be interpreted as direct measurements from local weather stations.
+## 4. NASA Data and Its Application
 
-## 5. Technical Implementation
+The project uses the NASA POWER (Prediction Of Worldwide Energy Resources) data service.
 
-EarthScope 360 was developed using:
+The selected environmental variables include:
 
-- HTML for application structure.
+- **T2M:** Temperature at 2 metres, measured in degrees Celsius.
+- **PRECTOTCORR:** Corrected precipitation, measured in millimetres per day.
+- **RH2M:** Relative humidity at 2 metres, measured in percentage.
+
+The platform retrieves monthly data for selected coordinates and supports analysis across the period 1981–2025.
+
+These data are gridded, model-based estimates and should not be interpreted as direct measurements from local weather stations.
+
+## 5. Technical Approach
+
+EarthScope 360 is developed using:
+
+- HTML for page structure.
 - CSS for interface design.
-- JavaScript for data processing and analysis.
+- JavaScript for application logic and analysis.
 - NASA POWER API for environmental data retrieval.
-- Chart.js for interactive time-series visualization.
-- Ordinary Least Squares regression for estimating linear trends.
-- Tie-corrected Mann–Kendall testing for examining monotonic trends.
+- Chart.js for interactive data visualization.
 
-Monthly observations are aggregated into day-weighted annual averages, accounting for differences in month lengths and leap years.
+The application converts monthly observations into day-weighted annual averages, accounting for differences in month lengths and leap years.
 
-## 6. Demonstration Result
+It then estimates a linear trend using regression and applies a tie-corrected Mann–Kendall test to examine whether a monotonic trend is statistically supported.
 
-A test using Gombe, Nigeria, for mean air temperature from 2001 to 2025 produced an estimated trend of approximately +0.0309 °C per year.
+The Mann–Kendall p-value is approximate, and the current implementation does not adjust for serial correlation.
 
-The tie-corrected Mann–Kendall test produced an approximate p-value of 0.1831. This does not provide sufficient evidence of a monotonic trend at the 5% significance level.
+## 6. Example Analysis
 
-This result applies only to the selected NASA POWER grid point and period.
+During testing, EarthScope 360 was used to analyze 2-metre air temperature for Gombe, Nigeria, from 2001 to 2025.
 
-## 7. Expected Impact
+The example analysis produced:
 
-EarthScope 360 demonstrates how accessible NASA environmental data can support climate awareness, environmental education and data literacy.
+- **Estimated linear trend:** +0.0309 °C per year.
+- **Mann–Kendall approximate p-value:** 0.1831.
+- **Interpretation:** The result does not provide sufficient statistical evidence of a monotonic trend at the 5% significance level.
 
-By focusing on Nigerian locations, the application provides an accessible starting point for exploring environmental changes within local communities.
+This result applies only to the selected NASA POWER grid point and analysis period. It should not be generalized to all of Nigeria.
 
-## 8. Limitations
+## 7. Project Impact
 
-- NASA POWER data are gridded estimates, not direct local weather-station measurements.
-- The Mann–Kendall test does not adjust for serial correlation.
-- Statistical significance does not establish causation.
-- Results should be interpreted within the selected location and historical period.
+EarthScope 360 makes NASA environmental data more accessible and understandable.
+
+It can support environmental learning, data exploration, preliminary research, and public awareness of long-term environmental patterns.
+
+By combining open NASA data, interactive visualization, and statistical analysis, the project demonstrates how accessible technology can help people investigate Earth's changing systems.
+
+## 8. Limitations and Future Improvements
+
+The platform has some limitations:
+
+- NASA POWER data are gridded estimates, not direct local station observations.
+- Statistical results do not establish causation.
+- The current Mann–Kendall implementation does not adjust for serial correlation.
+- Results depend on the selected coordinates, variable, and time period.
+
+Future improvements could include additional environmental datasets, more locations, improved statistical methods, and expanded comparisons between environmental variables.
+
+## 9. Project Links
+
+**Live Website:** https://kingabdulfx.github.io/EarthScope360/
+
+**GitHub Repository:** https://github.com/KINGABDULFX/EarthScope360
+
+## 10. AI Tool Disclosure
+
+AI tools were used as supportive resources during development. The project team reviewed, tested, and evaluated the implementation.

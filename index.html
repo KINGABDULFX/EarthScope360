@@ -1,33 +1,207 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EarthScope 360 | NASA Earth System Trend Detective</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-<header><div class="brand">EARTHSCOPE <span>360</span></div><div class="tag">NASA SPACE APPS CHALLENGE 2026 · THE NEXT FRONTIER</div></header>
+
+<header>
+  <div class="brand">EARTHSCOPE <span>360</span></div>
+  <div class="tag">NASA SPACE APPS CHALLENGE 2026 · THE NEXT FRONTIER</div>
+</header>
+
 <main>
-<section class="hero"><div><p class="eyebrow">EARTH SYSTEM TREND DETECTIVE</p><h1>Discover the story<br>behind Earth's changing signals.</h1>
-<p class="lead">Explore NASA meteorological data, measure long-term trends and understand whether observed changes are statistically meaningful.</p>
-</div><div class="earth" aria-hidden="true">◉</div></section>
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">EARTH SYSTEM TREND DETECTIVE</p>
+    <h1>Discover the story<br>behind Earth's changing signals.</h1>
+    <p class="lead">
+      Explore NASA meteorological data, measure long-term trends
+      and understand whether observed changes are statistically meaningful.
+    </p>
+  </div>
+  <div class="earth" aria-hidden="true">◉</div>
+</section>
+
 <section class="panel controls">
-<div><label for="place">Study location</label><select id="place"><option value="10.29,11.17">Gombe, Nigeria</option><option value="9.08,11.32">Bauchi, Nigeria</option><option value="12.00,8.52">Kano, Nigeria</option><option value="6.52,3.38">Lagos, Nigeria</option><option value="9.06,7.49">Abuja, Nigeria</option></select></div>
-<div><label for="variable">Earth variable</label><select id="variable"><option value="T2M">Mean air temperature (°C)</option><option value="PRECTOTCORR">Corrected precipitation (mm/day)</option><option value="RH2M">Relative humidity (%)</option></select></div>
-<div><label for="start">Start year</label><input id="start" type="number" min="1981" max="2025" value="2001"></div>
-<div><label for="end">End year</label><input id="end" type="number" min="1982" max="2025" value="2025"></div>
-<button id="analyze">Analyze NASA data</button>
+
+  <div>
+    <label for="place">Study location — Nigeria</label>
+
+    <select id="place">
+
+      <optgroup label="North Central">
+        <option value="7.8167,6.7500">Kogi — Lokoja</option>
+        <option value="8.5000,4.5500">Kwara — Ilorin</option>
+        <option value="8.4917,8.5167">Nasarawa — Lafia</option>
+        <option value="9.6139,6.5569">Niger — Minna</option>
+        <option value="9.9333,8.8833">Plateau — Jos</option>
+        <option value="9.0667,7.4833">FCT — Abuja</option>
+      </optgroup>
+
+      <optgroup label="North East">
+        <option value="9.2300,12.4600">Adamawa — Yola</option>
+        <option value="10.5000,10.0000">Bauchi — Bauchi</option>
+        <option value="11.8333,13.1500">Borno — Maiduguri</option>
+        <option value="10.29,11.17" selected>Gombe — Gombe</option>
+        <option value="8.9000,11.3667">Taraba — Jalingo</option>
+        <option value="11.7444,11.9611">Yobe — Damaturu</option>
+      </optgroup>
+
+      <optgroup label="North West">
+        <option value="10.5167,7.4333">Kaduna — Kaduna</option>
+        <option value="12.0000,8.52">Kano — Kano</option>
+        <option value="12.2500,7.5000">Katsina — Katsina</option>
+        <option value="11.5000,4.0000">Kebbi — Birnin Kebbi</option>
+        <option value="13.0667,5.2333">Sokoto — Sokoto</option>
+        <option value="12.1500,6.6667">Zamfara — Gusau</option>
+        <option value="11.7011,9.3419">Jigawa — Dutse</option>
+      </optgroup>
+
+      <optgroup label="South East">
+        <option value="5.5333,7.4833">Abia — Umuahia</option>
+        <option value="6.2100,7.0700">Anambra — Awka</option>
+        <option value="6.3333,8.1000">Ebonyi — Abakaliki</option>
+        <option value="6.4527,7.5103">Enugu — Enugu</option>
+        <option value="5.4850,7.0350">Imo — Owerri</option>
+      </optgroup>
+
+      <optgroup label="South South">
+        <option value="5.0500,7.9333">Akwa Ibom — Uyo</option>
+        <option value="4.7500,6.3333">Bayelsa — Yenagoa</option>
+        <option value="4.7500,8.3250">Cross River — Calabar</option>
+        <option value="6.1978,6.7285">Delta — Asaba</option>
+        <option value="6.3176,5.6145">Edo — Benin City</option>
+        <option value="4.8156,7.0498">Rivers — Port Harcourt</option>
+      </optgroup>
+
+      <optgroup label="South West">
+        <option value="7.6211,5.2214">Ekiti — Ado-Ekiti</option>
+        <option value="6.5833,3.3333">Lagos — Ikeja</option>
+        <option value="7.1608,3.3483">Ogun — Abeokuta</option>
+        <option value="7.2500,5.1950">Ondo — Akure</option>
+        <option value="7.7660,4.5667">Osun — Osogbo</option>
+        <option value="7.3964,3.9167">Oyo — Ibadan</option>
+      </optgroup>
+
+    </select>
+  </div>
+
+  <div>
+    <label for="variable">Earth variable</label>
+    <select id="variable">
+      <option value="T2M">Mean air temperature (°C)</option>
+      <option value="PRECTOTCORR">Corrected precipitation (mm/day)</option>
+      <option value="RH2M">Relative humidity (%)</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="start">Start year</label>
+    <input id="start" type="number" min="1981" max="2025" value="2001">
+  </div>
+
+  <div>
+    <label for="end">End year</label>
+    <input id="end" type="number" min="1982" max="2025" value="2025">
+  </div>
+
+  <button id="analyze">Analyze NASA data</button>
+
 </section>
-<div id="status" class="status">Choose a location and variable, then analyze. Internet access is required to retrieve NASA POWER data.</div>
+
+<div id="status" class="status">
+  Choose a location and variable, then analyze.
+  Internet access is required to retrieve NASA POWER data.
+</div>
+
 <section class="metrics">
-<article class="metric"><span>Trend rate</span><strong id="slope">—</strong><small>per year</small></article>
-<article class="metric"><span>Direction</span><strong id="direction">—</strong><small>linear trend</small></article>
-<article class="metric"><span>Significance</span><strong id="significance">—</strong><small>Mann–Kendall approximation</small></article>
-<article class="metric"><span>Records</span><strong id="count">—</strong><small>valid annual records</small></article>
+
+  <article class="metric">
+    <span>Trend rate</span>
+    <strong id="slope">—</strong>
+    <small>per year</small>
+  </article>
+
+  <article class="metric">
+    <span>Direction</span>
+    <strong id="direction">—</strong>
+    <small>linear trend</small>
+  </article>
+
+  <article class="metric">
+    <span>Significance</span>
+    <strong id="significance">—</strong>
+    <small>Mann–Kendall approximation</small>
+  </article>
+
+  <article class="metric">
+    <span>Records</span>
+    <strong id="count">—</strong>
+    <small>valid annual records</small>
+  </article>
+
 </section>
-<section class="panel chartpanel"><div class="sectionhead"><div><p class="eyebrow">TIME SERIES</p><h2>How has it changed?</h2></div><span class="source">Source: NASA POWER · MERRA-2 meteorology</span></div><canvas id="chart"></canvas></section>
-<section class="panel insight"><p class="eyebrow">INTERPRETATION</p><h2>What the signal tells us</h2><p id="interpretation">Your analysis summary will appear here after data retrieval.</p><p class="caution">Important: NASA POWER meteorological values are model-based gridded estimates, not direct measurements from a weather station. A statistical trend is not, by itself, proof of its cause.</p></section>
-<section class="panel about"><h2>Transparent science. Understandable evidence.</h2><p>EarthScope 360 helps students, researchers and communities investigate environmental change using open NASA data. It combines time-series visualization with an estimated linear trend and a Mann–Kendall trend test.</p><p><b>Data documentation:</b> <a href="https://power.larc.nasa.gov/docs/services/api/temporal/monthly/" target="_blank">NASA POWER Monthly API</a> · <a href="https://www.spaceappschallenge.org/2026/challenges/earth-system-trend-detective/" target="_blank">Official challenge</a></p></section>
-<footer>EARTHSCOPE 360 · Student-built prototype · NASA is not affiliated with or endorsing this project.</footer>
-</main><script src="app.js"></script></body></html>
+
+<section class="panel chartpanel">
+  <div class="sectionhead">
+    <div>
+      <p class="eyebrow">TIME SERIES</p>
+      <h2>How has it changed?</h2>
+    </div>
+    <span class="source">Source: NASA POWER · MERRA-2 meteorology</span>
+  </div>
+  <canvas id="chart"></canvas>
+</section>
+
+<section class="panel insight">
+  <p class="eyebrow">INTERPRETATION</p>
+  <h2>What the signal tells us</h2>
+  <p id="interpretation">
+    Your analysis summary will appear here after data retrieval.
+  </p>
+  <p class="caution">
+    Important: NASA POWER meteorological values are model-based
+    gridded estimates, not direct measurements from a weather station.
+    A statistical trend is not, by itself, proof of its cause.
+  </p>
+</section>
+
+<section class="panel about">
+  <h2>Transparent science. Understandable evidence.</h2>
+  <p>
+    EarthScope 360 helps students, researchers and communities
+    investigate environmental change using open NASA data.
+    It combines time-series visualization with an estimated
+    linear trend and a Mann–Kendall trend test.
+  </p>
+  <p>
+    <b>Data documentation:</b>
+    <a href="https://power.larc.nasa.gov/docs/services/api/temporal/monthly/" target="_blank">
+      NASA POWER Monthly API
+    </a>
+    ·
+    <a href="https://www.spaceappschallenge.org/2026/challenges/earth-system-trend-detective/" target="_blank">
+      Official challenge
+    </a>
+  </p>
+</section>
+
+<footer>
+  EARTHSCOPE 360 · Student-built prototype ·
+  NASA is not affiliated with or endorsing this project.
+</footer>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>

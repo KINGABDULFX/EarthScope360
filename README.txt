@@ -1,48 +1,95 @@
-EARTHSCOPE 360 — NASA SPACE APPS 2026 PROJECT PACK
-=================================================
 
-WHAT THIS IS
-A browser-based prototype for the 2026 NASA Space Apps challenge
+EARTHSCOPE 360
+NASA SPACE APPS CHALLENGE 2026
+================================
+
+PROJECT OVERVIEW
+
+EarthScope 360 is a browser-based environmental data exploration
+application developed for the NASA Space Apps Challenge:
+
 "Be An Earth System Trend Detective!"
 
-CURRENT IMPLEMENTATION
-- Location selector with Gombe, Bauchi, Kano, Lagos and Abuja.
-- Variable selector: temperature (T2M), corrected precipitation (PRECTOTCORR),
-  and relative humidity (RH2M).
-- Fetches monthly historical values from the NASA POWER Monthly Point API.
-- Aggregates monthly values into annual means.
-- Plots the annual time series and an ordinary least-squares linear trend.
-- Calculates a Mann–Kendall S statistic and approximate two-sided p-value.
-- Explains results with an important model-data caveat.
+The application helps users explore historical environmental
+changes across selected locations in Nigeria.
 
-HOW TO RUN
-1. Extract the ZIP file.
-2. Connect the laptop to the internet.
-3. Open index.html in Chrome, Edge or Firefox.
-4. Select Gombe, a variable and a year range.
+TEAM INFORMATION
+
+Team Name: SAHEL EARTHLAB
+
+Project Lead: Abdulshukur Umar Ahmad
+
+TEAM MEMBERS
+
+1. Abdulshukur Umar Ahmad
+2. Dauda Aliyu Adamu
+3. Aminu Seyoji Muhammad S.
+4. Ibrahim Lawan Yahaya
+
+Local Event: Gombe, Nigeria
+
+PROJECT FEATURES
+
+- Location selection: Gombe, Bauchi, Kano, Lagos and Abuja.
+- Temperature analysis (T2M).
+- Corrected precipitation analysis (PRECTOTCORR).
+- Relative humidity analysis (RH2M).
+- Historical data retrieval from NASA POWER.
+- Day-weighted annual averages with leap-year handling.
+- Annual time-series visualization using Chart.js.
+- Linear regression for estimating environmental trends.
+- Tie-corrected Mann–Kendall trend testing.
+- Plain-language interpretation of analytical results.
+
+TECHNOLOGIES
+
+- HTML
+- CSS
+- JavaScript
+- NASA POWER Monthly Point API
+- Chart.js
+
+HOW TO USE
+
+1. Open the published EarthScope 360 website.
+2. Select a Nigerian study location.
+3. Choose an environmental variable.
+4. Select the start and end years.
 5. Click "Analyze NASA data".
-No Python installation, server, API key or build step is required.
-Chart.js is loaded from a CDN, so internet is needed for the chart library and NASA API.
+6. Review the chart, trend estimate and statistical interpretation.
+
+TESTED EXAMPLE
+
+Location: Gombe, Nigeria
+Variable: Mean air temperature (T2M)
+Period: 2001–2025
+Estimated trend: +0.0309 °C per year
+Mann–Kendall approximate p-value: 0.1831
+
+Interpretation:
+The result does not provide sufficient evidence of a monotonic
+trend at the 5% significance level.
+
+This example describes the selected NASA POWER grid point
+and period, not the entire country.
 
 IMPORTANT SCIENTIFIC LIMITATIONS
-- NASA POWER meteorological data are gridded model/reanalysis-derived estimates,
-  not direct station observations. Explain this in the demo.
-- The trend slope is OLS on annual averages. The Mann–Kendall calculation is a
-  basic uncorrected approximation; serial correlation and ties are not adjusted.
-- Statistical significance does not establish causation.
-- The Gombe temperature analysis for 2001-2025 has been successfully in a browser. 
-- NASA POWER monthly meteorological data begin in 1981. This prototype caps end year
-  at 2025 to avoid requesting an incomplete current year.
 
-DATA AND CHALLENGE
+- NASA POWER meteorological data are gridded estimates,
+  not direct measurements from local weather stations.
+- The Mann–Kendall test does not adjust for serial correlation.
+- Statistical significance does not establish causation.
+- Results apply to the selected location and historical period.
+
+DATA SOURCE
+
 NASA POWER Monthly API:
 https://power.larc.nasa.gov/docs/services/api/temporal/monthly/
-Official challenge:
-https://www.spaceappschallenge.org/2026/challenges/earth-system-trend-detective/
 
-TEAM FIELDS TO COMPLETE
-Team name: SAHEL EARTHLAB
-Team members: ABDULSHAKUR UMAR AHMAD,DAUDA ALIYU ADAMU,AMINU SAYOJI MUHAMMED 
-Local event: Gombe, Nigeria
-Project lead: ABDULSHAKUR UMAR AHMAD
-GitHub/demo URL: https://kingabdulfx.gihub.io/EarhScope360/
+PROJECT WEBSITE
+
+https://kingabdulfx.github.io/EarthScope360/
+
+GITHUB REPOSITORY
+
+https://github.com/KINGABDULFX/EarthScope360
